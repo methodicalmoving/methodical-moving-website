@@ -1,0 +1,68 @@
+{
+  "note": "If your move takes longer than 6 hours, no problem at all — we will stay until the job is done. Contact us for a custom quote.",
+  "cities": [
+    {
+      "name": "Kingston",
+      "minimum_hours": 2,
+      "rate_1_to_2_helpers_standard": 55,
+      "rate_1_to_2_helpers_discounted": 45,
+      "rate_3_to_4_helpers_standard": 50,
+      "rate_3_to_4_helpers_discounted": 45,
+      "discount_after_hours": 3
+    },
+    {
+      "name": "Napanee",
+      "minimum_hours": 2,
+      "rate_1_to_2_helpers_standard": 55,
+      "rate_1_to_2_helpers_discounted": 45,
+      "rate_3_to_4_helpers_standard": 50,
+      "rate_3_to_4_helpers_discounted": 45,
+      "discount_after_hours": 3
+    },
+    {
+      "name": "Belleville",
+      "minimum_hours": 2,
+      "rate_1_to_2_helpers_standard": 60,
+      "rate_1_to_2_helpers_discounted": 50,
+      "rate_3_to_4_helpers_standard": 55,
+      "rate_3_to_4_helpers_discounted": 50,
+      "discount_after_hours": 3
+    },
+    {
+      "name": "Brockville",
+      "minimum_hours": 2,
+      "rate_1_to_2_helpers_standard": 60,
+      "rate_1_to_2_helpers_discounted": 50,
+      "rate_3_to_4_helpers_standard": 55,
+      "rate_3_to_4_helpers_discounted": 50,
+      "discount_after_hours": 3
+    },
+    {
+      "name": "Trenton",
+      "minimum_hours": 2,
+      "rate_1_to_2_helpers_standard": 65,
+      "rate_1_to_2_helpers_discounted": 55,
+      "rate_3_to_4_helpers_standard": 60,
+      "rate_3_to_4_helpers_discounted": 55,
+      "discount_after_hours": 3
+    },
+    {
+      "name": "Picton",
+      "minimum_hours": 2,
+      "rate_1_to_2_helpers_standard": 65,
+      "rate_1_to_2_helpers_discounted": 55,
+      "rate_3_to_4_helpers_standard": 60,
+      "rate_3_to_4_helpers_discounted": 55,
+      "discount_after_hours": 3
+    },
+    {
+      "name": "Ottawa",
+      "minimum_hours": 3,
+      "rate_1_to_2_helpers_standard": 75,
+      "rate_1_to_2_helpers_discounted": 65,
+      "rate_3_to_4_helpers_standard": 70,
+      "rate_3_to_4_helpers_discounted": 65,
+      "discount_after_hours": 3
+    }
+  ]
+}

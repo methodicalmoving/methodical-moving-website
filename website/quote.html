@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Get an instant quote for your move with Methodical Moving. Choose your city, team size, and hours — see your price immediately." />
+  <title>Get a Quote — Methodical Moving</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">
+      <img src="assets/logo.png" alt="Methodical Moving Logo" onerror="this.style.display='none'" />
+      <div class="navbar-logo-text">
+        Methodical Moving
+        <span>Kingston, Ontario</span>
+      </div>
+    </a>
+    <ul class="navbar-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="quote.html" class="btn btn-primary">Get a Quote</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="quote.html" class="btn btn-primary">Get a Free Quote</a>
+  </nav>
+</nav>
+
+<div class="page-content">
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="section-label" style="color:rgba(255,255,255,0.5);">Instant Estimate</p>
+      <h1>Get a Free Quote</h1>
+      <p>Select your location, team size, and hours to get an instant price — then book directly below.</p>
+    </div>
+  </section>
+
+  <section class="quote-section">
+    <div class="container">
+      <div class="quote-card">
+
+        <!-- STEP 1: CITY -->
+        <div class="quote-step">
+          <div class="quote-step-label">Step 1 of 3</div>
+          <h3>Where are you closest to?</h3>
+          <div class="city-grid">
+            <button class="city-btn" data-city="Kingston" onclick="selectCity(this)">Kingston</button>
+            <button class="city-btn" data-city="Napanee" onclick="selectCity(this)">Napanee</button>
+            <button class="city-btn" data-city="Belleville" onclick="selectCity(this)">Belleville</button>
+            <button class="city-btn" data-city="Brockville" onclick="selectCity(this)">Brockville</button>
+            <button class="city-btn" data-city="Trenton" onclick="selectCity(this)">Trenton</button>
+            <button class="city-btn" data-city="Picton" onclick="selectCity(this)">Picton</button>
+            <button class="city-btn" data-city="Ottawa" onclick="selectCity(this)">Ottawa</button>
+          </div>
+        </div>
+
+        <!-- STEP 2: HELPERS -->
+        <div class="quote-step">
+          <div class="quote-step-label">Step 2 of 3</div>
+          <h3>How many helpers do you need?</h3>
+          <div class="helpers-grid">
+            <button class="helper-btn" data-helpers="1" onclick="selectHelpers(this)">
+              1 <span>Helper</span>
+            </button>
+            <button class="helper-btn" data-helpers="2" onclick="selectHelpers(this)">
+              2 <span>Helpers</span>
+            </button>
+            <button class="helper-btn" data-helpers="3" onclick="selectHelpers(this)">
+              3 <span>Helpers</span>
+            </button>
+            <button class="helper-btn" data-helpers="4" onclick="selectHelpers(this)">
+              4 <span>Helpers</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 3: HOURS -->
+        <div class="quote-step">
+          <div class="quote-step-label">Step 3 of 3</div>
+          <h3>Estimated hours needed</h3>
+          <div class="hours-display">
+            <span id="hoursVal">2</span> <span>hrs</span>
+          </div>
+          <div class="slider-wrap">
+            <input
+              type="range"
+              class="hours-slider"
+              id="hoursSlider"
+              min="2"
+              max="6"
+              step="0.5"
+              value="2"
+              oninput="updateHours(this.value)"
+            />
+            <div class="slider-labels">
+              <span id="sliderMin">2 hrs (min)</span>
+              <span>6 hrs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRICE DISPLAY -->
+        <div class="price-display" id="priceDisplay">
+          <div class="price-label">Estimated Total</div>
+          <div id="priceAmount">
+            <div class="price-placeholder">Select options above to see your estimate</div>
+          </div>
+          <div class="price-breakdown" id="priceBreakdown"></div>
+        </div>
+
+        <!-- PRICE NOTE -->
+        <div class="price-note">
+          Need more than 6 hours? No problem — we will stay until the job is done.
+          <a href="contact.html" style="color:var(--primary); font-weight:600;">Contact us for a custom quote.</a>
+        </div>
+
+        <!-- BOOKING FORM -->
+        <div class="booking-form" id="bookingForm">
+          <h3>Book Your Move</h3>
+          <p class="form-sub">Fill in your details below and we'll be in touch to confirm everything.</p>
+          <form id="quoteForm" novalidate>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="bName">Full Name *</label>
+                <input type="text" id="bName" name="name" placeholder="Jane Smith" required />
+              </div>
+              <div class="form-group">
+                <label for="bPhone">Phone Number *</label>
+                <input type="tel" id="bPhone" name="phone" placeholder="613-555-0100" required />
+              </div>
+              <div class="form-group">
+                <label for="bEmail">Email Address *</label>
+                <input type="email" id="bEmail" name="email" placeholder="jane@example.com" required />
+              </div>
+              <div class="form-group">
+                <label for="bDate">Moving Date *</label>
+                <input type="date" id="bDate" name="date" required />
+              </div>
+              <div class="form-group">
+                <label for="bCity">Your City *</label>
+                <input type="text" id="bCity" name="city" placeholder="Kingston" required />
+              </div>
+              <div class="form-group">
+                <label for="bHelpers">Number of Helpers</label>
+                <input type="text" id="bHelpers" name="helpers" placeholder="e.g. 2" readonly />
+              </div>
+              <div class="form-group">
+                <label for="bHours">Estimated Hours</label>
+                <input type="text" id="bHours" name="hours" placeholder="e.g. 3" readonly />
+              </div>
+              <div class="form-group">
+                <label for="bEstimate">Price Estimate</label>
+                <input type="text" id="bEstimate" name="estimate" placeholder="Select options above" readonly />
+              </div>
+              <div class="form-group full">
+                <label for="bNotes">Additional Notes</label>
+                <textarea id="bNotes" name="notes" placeholder="Any special items, access instructions, stairs, elevator, etc."></textarea>
+              </div>
+            </div>
+            <div class="form-submit">
+              <button type="submit" class="btn btn-primary">Submit Booking Request</button>
+            </div>
+          </form>
+
+          <!-- PAYMENT INFO (shown after submission) -->
+          <div class="payment-info" id="paymentInfo">
+            <h3>✓ Request Received!</h3>
+            <p>Thanks for reaching out. We'll confirm your booking shortly by phone or email.</p>
+            <p><strong style="color:var(--white);">Payment Instructions</strong><br />We accept cash or e-transfer.</p>
+            <div class="payment-method">
+              E-Transfer: methodicalmoving2023@gmail.com
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Methodical Moving" onerror="this.style.display='none'" />
+        <p>Kingston's highest rated moving team. Professional, punctual, and built on trust across Eastern Ontario.</p>
+        <div class="footer-slogan">There is method to the moving.</div>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="quote.html">Get a Quote</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Residential Moves</a></li>
+          <li><a href="services.html">Commercial Moves</a></li>
+          <li><a href="services.html">Motorcycle Transport</a></li>
+          <li><a href="services.html">Load & Unload</a></li>
+          <li><a href="services.html">Heavy Equipment</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:6135418568">613-541-8568</a></li>
+          <li><a href="mailto:methodicalmoving2023@gmail.com">methodicalmoving2023@gmail.com</a></li>
+          <li><a href="contact.html">Send a Message</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Methodical Moving. All rights reserved. Kingston, Ontario.</p>
+      <p>Serving Kingston, Napanee, Belleville, Brockville, Trenton, Picton &amp; Ottawa</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  // ========================
+  // QUOTE CALCULATOR
+  // ========================
+
+  const pricing = {
+    tiers: [
+      { helpers: 1, rate_standard: 55, rate_discounted: 45, discount_after_hours: 3 },
+      { helpers: 2, rate_standard: 55, rate_discounted: 45, discount_after_hours: 3 },
+      { helpers: 3, rate_standard: 50, rate_discounted: 45, discount_after_hours: 3 },
+      { helpers: 4, rate_standard: 50, rate_discounted: 45, discount_after_hours: 3 }
+    ]
+  };
+
+  let selectedCity = null;
+  let selectedHelpers = null;
+  let selectedHours = 2;
+
+  function selectCity(btn) {
+    document.querySelectorAll('.city-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    selectedCity = btn.dataset.city;
+
+    // Ottawa has 3-hour minimum
+    const slider = document.getElementById('hoursSlider');
+    const minLabel = document.getElementById('sliderMin');
+    if (selectedCity === 'Ottawa') {
+      slider.min = 3;
+      if (parseFloat(slider.value) < 3) {
+        slider.value = 3;
+        selectedHours = 3;
+        document.getElementById('hoursVal').textContent = '3';
+      }
+      minLabel.textContent = '3 hrs (min)';
+    } else {
+      slider.min = 2;
+      minLabel.textContent = '2 hrs (min)';
+    }
+    updatePrice();
+  }
+
+  function selectHelpers(btn) {
+    document.querySelectorAll('.helper-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    selectedHelpers = parseInt(btn.dataset.helpers);
+    document.getElementById('bHelpers').value = selectedHelpers + ' helper' + (selectedHelpers > 1 ? 's' : '');
+    updatePrice();
+  }
+
+  function updateHours(val) {
+    selectedHours = parseFloat(val);
+    document.getElementById('hoursVal').textContent = selectedHours % 1 === 0 ? selectedHours : selectedHours.toFixed(1);
+    document.getElementById('bHours').value = selectedHours + ' hours';
+    updatePrice();
+  }
+
+  function updatePrice() {
+    if (!selectedCity || !selectedHelpers) return;
+
+    const tier = pricing.tiers.find(t => t.helpers === selectedHelpers);
+    const discountThreshold = tier.discount_after_hours;
+    let total = 0;
+
+    if (selectedHours <= discountThreshold) {
+      total = selectedHelpers * tier.rate_standard * selectedHours;
+    } else {
+      const standardPart = selectedHelpers * tier.rate_standard * discountThreshold;
+      const discountedPart = selectedHelpers * tier.rate_discounted * (selectedHours - discountThreshold);
+      total = standardPart + discountedPart;
+    }
+
+    total = Math.round(total);
+
+    const priceEl = document.getElementById('priceAmount');
+    priceEl.innerHTML = `<div class="price-amount">$${total.toLocaleString()}</div>`;
+
+    // Breakdown
+    let breakdownText = '';
+    if (selectedHours <= discountThreshold) {
+      breakdownText = `${selectedHelpers} helper${selectedHelpers > 1 ? 's' : ''} × $${tier.rate_standard}/hr × ${selectedHours} hrs`;
+    } else {
+      breakdownText = `First ${discountThreshold} hrs at $${tier.rate_standard}/hr + ${(selectedHours - discountThreshold).toFixed(1)} hrs at $${tier.rate_discounted}/hr`;
+    }
+    document.getElementById('priceBreakdown').textContent = breakdownText;
+
+    // Populate booking form fields
+    document.getElementById('bEstimate').value = '$' + total.toLocaleString();
+    if (!document.getElementById('bCity').value) {
+      document.getElementById('bCity').value = selectedCity;
+    }
+  }
+
+  // Form submission
+  document.getElementById('quoteForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    const paymentInfo = document.getElementById('paymentInfo');
+    paymentInfo.classList.add('show');
+    paymentInfo.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+</script>
+</body>
+</html>

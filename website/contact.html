@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Methodical Moving — call, email, or send a message. Serving Kingston, Napanee, Belleville, Brockville, Trenton, Picton, and Ottawa." />
+  <title>Contact — Methodical Moving</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">
+      <img src="assets/logo.png" alt="Methodical Moving Logo" onerror="this.style.display='none'" />
+      <div class="navbar-logo-text">
+        Methodical Moving
+        <span>Kingston, Ontario</span>
+      </div>
+    </a>
+    <ul class="navbar-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="quote.html" class="btn btn-primary">Get a Quote</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="quote.html" class="btn btn-primary">Get a Free Quote</a>
+  </nav>
+</nav>
+
+<div class="page-content">
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="section-label" style="color:rgba(255,255,255,0.5);">Get in Touch</p>
+      <h1>Contact Us</h1>
+      <p>Questions, quotes, or just want to talk through your move — we're here to help.</p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- LEFT: INFO -->
+        <div class="contact-info">
+          <p class="section-label">Reach Out</p>
+          <h2>Let's Talk About Your Move</h2>
+          <p>We're a local Kingston team — real people, fast responses. Whether you have a simple question or need to plan a complex move, give us a call or send a message.</p>
+
+          <div class="contact-items">
+
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div>
+                <div class="contact-item-label">Phone</div>
+                <div class="contact-item-value">
+                  <a href="tel:6135418568">613-541-8568</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">✉️</div>
+              <div>
+                <div class="contact-item-label">Email</div>
+                <div class="contact-item-value">
+                  <a href="mailto:methodicalmoving2023@gmail.com">methodicalmoving2023@gmail.com</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div>
+                <div class="contact-item-label">Service Areas</div>
+                <div class="contact-areas">
+                  <span class="contact-area-tag">Kingston</span>
+                  <span class="contact-area-tag">Napanee</span>
+                  <span class="contact-area-tag">Belleville</span>
+                  <span class="contact-area-tag">Brockville</span>
+                  <span class="contact-area-tag">Trenton</span>
+                  <span class="contact-area-tag">Picton</span>
+                  <span class="contact-area-tag">Ottawa</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div style="margin-top: 40px; padding: 28px; background: var(--light); border-radius: var(--radius-lg);">
+            <p style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.95rem; margin-bottom:8px; color:var(--dark);">Ready to book?</p>
+            <p style="font-size:0.88rem; color:var(--text-light); margin-bottom:16px;">Use our quote calculator to get an instant price and submit your booking request in minutes.</p>
+            <a href="quote.html" class="btn btn-primary">Get an Instant Quote</a>
+          </div>
+        </div>
+
+        <!-- RIGHT: FORM -->
+        <div class="contact-form-card">
+          <h3>Send a Message</h3>
+          <form id="contactForm" novalidate>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="cName">Full Name *</label>
+                <input type="text" id="cName" name="name" placeholder="Jane Smith" required />
+              </div>
+              <div class="form-group">
+                <label for="cPhone">Phone Number</label>
+                <input type="tel" id="cPhone" name="phone" placeholder="613-555-0100" />
+              </div>
+              <div class="form-group full">
+                <label for="cEmail">Email Address *</label>
+                <input type="email" id="cEmail" name="email" placeholder="jane@example.com" required />
+              </div>
+              <div class="form-group full">
+                <label for="cMessage">Message *</label>
+                <textarea id="cMessage" name="message" placeholder="Tell us about your move — where, when, what you need..." required style="min-height:140px;"></textarea>
+              </div>
+            </div>
+            <div class="form-submit">
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </div>
+          </form>
+
+          <div class="contact-success" id="contactSuccess">
+            <div style="font-size:3rem; margin-bottom:16px;">✓</div>
+            <h3>Message Sent!</h3>
+            <p>Thanks for reaching out. We'll get back to you shortly — usually within a few hours.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Methodical Moving" onerror="this.style.display='none'" />
+        <p>Kingston's highest rated moving team. Professional, punctual, and built on trust across Eastern Ontario.</p>
+        <div class="footer-slogan">There is method to the moving.</div>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="quote.html">Get a Quote</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Residential Moves</a></li>
+          <li><a href="services.html">Commercial Moves</a></li>
+          <li><a href="services.html">Motorcycle Transport</a></li>
+          <li><a href="services.html">Load & Unload</a></li>
+          <li><a href="services.html">Heavy Equipment</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:6135418568">613-541-8568</a></li>
+          <li><a href="mailto:methodicalmoving2023@gmail.com">methodicalmoving2023@gmail.com</a></li>
+          <li><a href="contact.html">Send a Message</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Methodical Moving. All rights reserved. Kingston, Ontario.</p>
+      <p>Serving Kingston, Napanee, Belleville, Brockville, Trenton, Picton &amp; Ottawa</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

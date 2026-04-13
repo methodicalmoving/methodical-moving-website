@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="See our work — photos from real Methodical Moving jobs across Kingston and Eastern Ontario." />
+  <title>Gallery — Methodical Moving</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <style>
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 12px;
+      object-fit: contain;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .lightbox-caption {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      font-size: 2rem;
+      color: rgba(255,255,255,0.7);
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .lightbox-close:hover { color: #fff; }
+    .gallery-item { cursor: pointer; }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">
+      <img src="assets/logo.png" alt="Methodical Moving Logo" onerror="this.style.display='none'" />
+      <div class="navbar-logo-text">
+        Methodical Moving
+        <span>Kingston, Ontario</span>
+      </div>
+    </a>
+    <ul class="navbar-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="quote.html" class="btn btn-primary">Get a Quote</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="quote.html" class="btn btn-primary">Get a Free Quote</a>
+  </nav>
+</nav>
+
+<div class="page-content">
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="section-label" style="color:rgba(255,255,255,0.5);">Real Jobs</p>
+      <h1>Our Work in Action</h1>
+      <p>Photos from real moves — residential, commercial, specialty, and everything in between.</p>
+    </div>
+  </section>
+
+  <section class="gallery-section">
+    <div class="container">
+      <div class="gallery-grid">
+
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="assets/reviews/Job Pictures/Organized Truck.jpg" alt="Organized Truck" loading="lazy" />
+          <div class="gallery-caption">Organized Truck</div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="assets/reviews/Job Pictures/Wrapping Items.jpg" alt="Wrapping Items" loading="lazy" />
+          <div class="gallery-caption">Wrapping Items</div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="assets/reviews/Job Pictures/Motorcycle Moving.jpg" alt="Motorcycle Moving" loading="lazy" />
+          <div class="gallery-caption">Motorcycle Moving</div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="assets/reviews/Job Pictures/Heavy Equipment Moving.jpg" alt="Heavy Equipment Moving" loading="lazy" />
+          <div class="gallery-caption">Heavy Equipment Moving</div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="assets/reviews/Job Pictures/Job Pic 1.jpg" alt="Job Photo" loading="lazy" />
+          <div class="gallery-caption">On the Job</div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="assets/reviews/Job Pictures/Job Pic 3.jpg" alt="Job Photo" loading="lazy" />
+          <div class="gallery-caption">On the Job</div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="assets/reviews/Job Pictures/Job Pic 4.jpg" alt="Job Photo" loading="lazy" />
+          <div class="gallery-caption">On the Job</div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="assets/reviews/Job Pictures/Job Pic 7.jpg" alt="Job Photo" loading="lazy" />
+          <div class="gallery-caption">On the Job</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Like What You See?</h2>
+      <p>Get a free instant quote and book your move today.</p>
+      <a href="quote.html" class="btn btn-outline btn-lg">Get a Free Quote</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <img id="lightboxImg" src="" alt="" />
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Methodical Moving" onerror="this.style.display='none'" />
+        <p>Kingston's highest rated moving team. Professional, punctual, and built on trust across Eastern Ontario.</p>
+        <div class="footer-slogan">There is method to the moving.</div>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="quote.html">Get a Quote</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Residential Moves</a></li>
+          <li><a href="services.html">Commercial Moves</a></li>
+          <li><a href="services.html">Motorcycle Transport</a></li>
+          <li><a href="services.html">Load & Unload</a></li>
+          <li><a href="services.html">Heavy Equipment</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:6135418568">613-541-8568</a></li>
+          <li><a href="mailto:methodicalmoving2023@gmail.com">methodicalmoving2023@gmail.com</a></li>
+          <li><a href="contact.html">Send a Message</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Methodical Moving. All rights reserved. Kingston, Ontario.</p>
+      <p>Serving Kingston, Napanee, Belleville, Brockville, Trenton, Picton &amp; Ottawa</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  function openLightbox(item) {
+    const img = item.querySelector('img');
+    const caption = item.querySelector('.gallery-caption');
+    document.getElementById('lightboxImg').src = img.src;
+    document.getElementById('lightboxImg').alt = img.alt;
+    document.getElementById('lightboxCaption').textContent = caption.textContent;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox(e) {
+    if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+</script>
+</body>
+</html>
