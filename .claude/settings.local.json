@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(nslookup methodicalmoving.com)"
+      "Bash(nslookup methodicalmoving.com)",
+      "Bash(git add *)"
     ]
   }
 }

@@ -309,6 +309,21 @@ section { padding: 80px 0; }
   gap: 16px;
   flex-wrap: wrap;
 }
+.hero-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  color: rgba(255,255,255,0.75);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: color var(--transition);
+}
+.hero-phone:hover { color: var(--white); }
+.hero-phone svg { color: var(--primary-light); flex-shrink: 0; }
+
 .hero-badges {
   display: flex;
   gap: 24px;
@@ -521,7 +536,7 @@ section { padding: 80px 0; }
    =========================== */
 .page-hero {
   background: url('../assets/kingston-hero.jpg') center 65% / cover no-repeat;
-  padding: 100px 0 80px;
+  padding: 160px 0 130px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -1063,6 +1078,38 @@ section { padding: 80px 0; }
 .footer-bottom p {
   font-size: 0.8rem;
   color: rgba(255,255,255,0.3);
+}
+
+/* ===========================
+   MOBILE CALL BUTTON
+   =========================== */
+.mobile-call-btn {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .mobile-call-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: var(--primary);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    padding: 16px;
+    text-decoration: none;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.25);
+  }
+  /* Push footer content up so it isn't hidden behind the button */
+  .footer-bottom { padding-bottom: 72px; }
 }
 
 /* ===========================
