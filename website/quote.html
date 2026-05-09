@@ -240,6 +240,7 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/town-map.js"></script>
 <script>
   // ========================
   // QUOTE CALCULATOR
@@ -333,12 +334,44 @@
   }
 
   // Form submission
-  document.getElementById('quoteForm').addEventListener('submit', function(e) {
+  document.getElementById('quoteForm').addEventListener('submit', async function(e) {
     e.preventDefault();
-    this.style.display = 'none';
-    const paymentInfo = document.getElementById('paymentInfo');
-    paymentInfo.classList.add('show');
-    paymentInfo.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    const submitBtn = this.querySelector('[type="submit"]');
+    submitBtn.textContent = 'Sending…';
+    submitBtn.disabled = true;
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key:   WEB3FORMS_KEY,
+          subject:      'New Booking Request — Methodical Moving',
+          from_name:    'Methodical Moving Website',
+          name:         document.getElementById('bName').value,
+          email:        document.getElementById('bEmail').value,
+          phone:        document.getElementById('bPhone').value,
+          moving_date:  document.getElementById('bDate').value,
+          city:         document.getElementById('bCity').value,
+          helpers:      document.getElementById('bHelpers').value,
+          hours:        document.getElementById('bHours').value,
+          estimate:     document.getElementById('bEstimate').value,
+          notes:        document.getElementById('bNotes').value || 'None',
+        }),
+      });
+
+      const json = await res.json();
+      if (!json.success) throw new Error(json.message);
+
+      this.style.display = 'none';
+      const paymentInfo = document.getElementById('paymentInfo');
+      paymentInfo.classList.add('show');
+      paymentInfo.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } catch {
+      submitBtn.textContent = 'Something went wrong — please try again';
+      submitBtn.disabled = false;
+    }
   });
 </script>
 </body>
