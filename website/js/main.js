@@ -6,7 +6,7 @@
 // 1. Go to https://web3forms.com/create
 // 2. Enter: methodicalmoving2023@gmail.com
 // 3. Copy the key from the email they send you and paste it below
-const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_KEY';
+const WEB3FORMS_KEY = '727df564-60a8-4906-a64f-d2adbe5f4785';
 // ──────────────────────────────────────────────────────────────
 
 // Mobile nav toggle
